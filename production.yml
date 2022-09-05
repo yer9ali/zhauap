@@ -70,29 +70,29 @@ services:
 #      - "0.0.0.0:443:443"
 #      - "0.0.0.0:5555:5555"
 
-  redis:
-    image: redis:6
-
-  celeryworker:
-    <<: *django
-    image: daiyn_zhauaptar_production_celeryworker
-    command: /start-celeryworker
-
-  celerybeat:
-    <<: *django
-    image: daiyn_zhauaptar_production_celerybeat
-    command: /start-celerybeat
-
-  flower:
-    <<: *django
-    image: daiyn_zhauaptar_production_flower
-    command: /start-flower
-
-  awscli:
-    build:
-      context: .
-      dockerfile: ./compose/production/aws/Dockerfile
-    env_file:
-      - ./.envs/.production/.django
-    volumes:
-      - production_postgres_data_backups:/backups:z
+#  redis:
+#    image: redis:6
+#
+#  celeryworker:
+#    <<: *django
+#    image: daiyn_zhauaptar_production_celeryworker
+#    command: /start-celeryworker
+#
+#  celerybeat:
+#    <<: *django
+#    image: daiyn_zhauaptar_production_celerybeat
+#    command: /start-celerybeat
+#
+#  flower:
+#    <<: *django
+#    image: daiyn_zhauaptar_production_flower
+#    command: /start-flower
+#
+#  awscli:
+#    build:
+#      context: .
+#      dockerfile: ./compose/production/aws/Dockerfile
+#    env_file:
+#      - ./.envs/.production/.django
+#    volumes:
+#      - production_postgres_data_backups:/backups:z
