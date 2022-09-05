@@ -1,0 +1,32 @@
+{% extends 'base_register.html' %}
+{% load i18n %}
+
+{% block content %}
+    <section class="form-login">
+        <div class="form-login-content">
+            <div class="form-login-block green-card">
+                <h2>Регистрация</h2>
+                <form method="post" action="{% url 'register' %}">
+                    {% csrf_token %}
+                    <input type="text" name="username" id="name-user" required placeholder="Имя пользователя"
+                           >
+                    <input type="email" name="email" id="email-user" required placeholder="Электронная почта"
+                           >
+                    <input type="password" name="password" id="password-user" required placeholder="Пароль"
+                           >
+                    <button class="btn btn-blue" type="submit">Регистрация</button>
+                </form>
+                {% if form.errors %}
+                    <p style="color:red;">Пользователь с этим именем уже существует</p>
+                {% endif %}
+                <p>Нажимая кнопку «Зарегистрироваться»,<br>
+                    Вы принимаете условия <br> <a href="#">Пользовательского соглашения</a></p>
+            </div>
+            <footer class="footer-form">
+                <p>Уже есть аккаунт?</p>
+                <a href="{% url 'login' %}">Войти</a>
+            </footer>
+        </div>
+
+    </section>
+{% endblock %}

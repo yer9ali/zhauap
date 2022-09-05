@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block side_block %}
+  {% for key, value in subject_dict.items %}
+
+    <li class="link-nav">
+    <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M21 4H7C6.46957 4 5.96086 4.21071 5.58579 4.58579C5.21071 4.96086 5 5.46957 5 6C5 6.53043 5.21071 7.03914 5.58579 7.41421C5.96086 7.78929 6.46957 8 7 8H21V21C21 21.2652 20.8946 21.5196 20.7071 21.7071C20.5196 21.8946 20.2652 22 20 22H7C5.93913 22 4.92172 21.5786 4.17157 20.8284C3.42143 20.0783 3 19.0609 3 18V6C3 4.93913 3.42143 3.92172 4.17157 3.17157C4.92172 2.42143 5.93913 2 7 2H20C20.2652 2 20.5196 2.10536 20.7071 2.29289C20.8946 2.48043 21 2.73478 21 3V4ZM20 7H7C6.73478 7 6.48043 6.89464 6.29289 6.70711C6.10536 6.51957 6 6.26522 6 6C6 5.73478 6.10536 5.48043 6.29289 5.29289C6.48043 5.10536 6.73478 5 7 5H20V7Z"
+                                      fill="#CBD4E0"/>
+                                </svg>
+                                {{ key }} класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                  fill="#8D9FBB"/>
+                            </svg>
+                        </span>
+    <ul class="sub-link">
+      {% for book_name in value %}
+        <li><a href="{% url 'detail' book_name key %}">{{ book_name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</li>
+{% endblock %}
+
+
+
+{% block content %}
+  {% load static %}
+
+  <div class="content-page">
+    <section class="about-site">
+      <div class="about-row green-card bg-shadow">
+        <div class="about-img">
+          <img src="{% static 'images/content/about-img.jpg' %}" alt="">
+        </div>
+        <div class="about-info">
+          <h2>Кому полезны ГДЗ?</h2>
+          <p>Готовые домашние задания помогут ученикам разобраться с непростой программой белорусских школ. С
+            помощью наших решебников школьник может самостоятельно изучить пропущенную тему. Ход решения
+            помогает понять логику выполнения упражнения, благодаря чего ученик начинает справляться с
+            материалом. ГДЗ также полезны родителям, которые пытаются помочь своим детям, но не могут
+            целиком и полностью помнить школьную программу.</p>
+        </div>
+      </div>
+    </section>
+    <section class="school">
+      <h1>Решебники и ГДЗ 2022</h1>
+      <div class="row">
+        {% for key, value in book_dict.items %}
+          <div class="school-card blue-card">
+            <header>
+              <div class="card-icon">
+                <img src="{% get_media_prefix %}{{ value.photo }}" alt="">
+              </div>
+              <div class="card-info">
+                <h3>{{ key }}</h3>
+                <span>{{ value.class | first }}-{{ value.class | last }} класс</span>
+              </div>
+            </header>
+            <ul class="card-links">
+              {% for clas in value.class %}
+                <li><a href="{% url 'detail' key clas %}">{{ clas }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+
+  </div>
+{% endblock %}

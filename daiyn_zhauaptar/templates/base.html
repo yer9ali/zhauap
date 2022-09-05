@@ -1,0 +1,89 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГДЗ Zhauap</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/ui-kit.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+</head>
+
+<body>
+<header class="width-layout header-page">
+    <div class="logo">
+        <a class="link-disable" href="{% url 'index' %}"><img src="{% static 'images/logo.svg' %}" alt="">
+            <p>Zhauap</p></a>
+    </div>
+    <div class="header-right">
+        <form action="#">
+            <div class="input-search">
+                {#                <input type="search" name="search-page" id="search-page" placeholder="Поиск">#}
+                {#                <button><img src="{% static 'img/icons/search.png' %}" alt="Поиск"></button>#}
+            </div>
+        </form>
+        <div class="row-btn">
+            {% if user.is_authenticated %}
+                <div class="row-btn">
+                    <a href="{% url 'subscription' %}" class="acc-btn-row">
+                        <p>Профиль</p>
+                        <div class="avatar">
+                            <img src="{% static 'images/icons/avatar.jpg' %}" alt="avatar-user">
+                        </div>
+                    </a>
+                </div>
+            {% else %}
+                <a class="btn-pc" href="{% url 'register' %}">Регистрация</a>
+                <a class="btn btn-blue btn-pc" href="{% url 'login' %}">Вход</a>
+            {% endif %}
+            {#            <div class="search-icons">#}
+            {#                <img src="{% static 'img/icons/search-icons.png' %}" alt="Профиль">#}
+            {#            </div>#}
+            <div class="user-icons">
+                <a href="{% url 'login' %}"> <img src="{% static 'images/icons/user.png' %}" alt="Профиль"></a>
+            </div>
+            <div class="humb-icons">
+                <img src="{% static 'images/icons/menu.png' %}" alt="МЕНЮ">
+            </div>
+        </div>
+
+    </div>
+</header>
+<main class="main-content width-layout">
+    <aside class="left-navbar bg-shadow">
+        <nav class="navigation-page">
+            <ul>
+                {% block side_block %}{% endblock %}
+            </ul>
+        </nav>
+        <div class="overlay-menu"></div>
+    </aside>
+
+    {% block content %}{% endblock %}
+
+</main>
+
+<footer class="footer-page">
+    <div class="footer-content width-layout">
+        <a class="link-small" href="#">политика конфиденциальности</a>
+        <p class="copyright">© Zhauap.kz 2022</p>
+    </div>
+</footer>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/accordion.js' %}"></script>
+</body>
+
+</html>

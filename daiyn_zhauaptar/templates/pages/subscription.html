@@ -1,0 +1,226 @@
+{% extends 'pages/base_profile.html' %}
+{% load i18n %}
+{% block content %}
+    <div class="content-page ">
+{#        <ul class="crumb bg-shadow">#}
+            {#            <li><a href="../index.html">Yergali</a></li>#}
+            {#            <li class="mob-hidden">\</li>#}
+            {#            <li class="mob-hidden"><a href="#">Профиль</a></li>#}
+            {#            <li class="mob-hidden">\</li>#}
+            {#            <li class="pc-visible">\ ... \</li>#}
+            {#            <li>Подписки</li>#}
+{#        </ul>#}
+        <section class="subscription-section">
+            <div class="h2-row">
+                <h2>Подписки</h2>
+                <div class="btn-row">
+                    {#                    <div class="select-sorting">#}
+                    {#                        <label for="sel-sorting">#}
+                    {#                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"#}
+                    {#                                 xmlns="http://www.w3.org/2000/svg">#}
+                    {#                                <rect width="24" height="24" transform="translate(24) rotate(90)" fill="#F8FAFB"/>#}
+                    {#                                <path d="M12 15L16 20L20 15L17.001 15L17.001 2L15.001 2L15.001 15L12 15ZM9 22L9 9L12 9L8 4L4 9L7 9L7 22L9 22Z"#}
+                    {#                                      fill="#8D9FBB"/>#}
+                    {#                            </svg>#}
+                    {#                        </label>#}
+                    {#                        <select name="" id="sel-sorting">#}
+                    {#                            <option value="1">Сортировка</option>#}
+                    {#                            <option value="2">Оплачено</option>#}
+                    {#                            <option value="3">Не оплачено</option>#}
+                    {#                            <option value="4">Отмененно</option>#}
+                    {#                        </select>#}
+                    {#                    </div>#}
+                    {#                    <div class="select-sorting select-filter">#}
+                    {#                        <label for="sel-filter">#}
+                    {#                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"#}
+                    {#                                 xmlns="http://www.w3.org/2000/svg">#}
+                    {#                                <rect width="24" height="24" fill="#F8FAFB"/>#}
+                    {#                                <path d="M10 18H14V16H10V18ZM3 6V8H21V6H3ZM6 13H18V11H6V13Z" fill="#8D9FBB"/>#}
+                    {#                            </svg>#}
+                    {#                        </label>#}
+                    {#                        <select name="" id="sel-filter">#}
+                    {#                            <option value="1">Фильтр</option>#}
+                    {#                            <option value="2">1 Класс</option>#}
+                    {#                            <option value="3">2 Класс</option>#}
+                    {#                            <option value="4">3 Класс</option>#}
+                    {#                            <option value="5">4 Класс</option>#}
+                    {#                            <option value="6">5 Класс</option>#}
+                    {#                            <option value="7">6 Класс</option>#}
+                    {#                            <option value="8">7 Класс</option>#}
+                    {#                            <option value="9">8 Класс</option>#}
+                    {#                            <option value="10">9 Класс</option>#}
+                    {#                            <option value="11">12 Класс</option>#}
+                    {#                            <option value="12">11 Класс</option>#}
+                    {#                        </select>#}
+                    {#                    </div>#}
+                </div>
+            </div>
+            <div class="subscription-row">
+                {% for item in subs_list %}
+                    <div class="subscription-item bg-shadow blue-card">
+                        <header class="h3-row">
+                            <h3>Подписка</h3>
+                            <span class="paid">Оплачено</span>
+                        </header>
+                        <ul class="text-list">
+                            <li>
+                                <span>Класс:</span>
+                                <p>{{ item.0 }} класс</p>
+                            </li>
+                            {#                        <li>#}
+                            {#                            <span>Программа:</span>#}
+                            {#                            <p>Русский язык</p>#}
+                            {#                        </li>#}
+                            <li>
+                                <span>Дата подключения:</span>
+                                <p>{{ item.1|date:"d M Y" }}</p>
+                            </li>
+                            <li>
+                                <span>Конец подписки:</span>
+                                <p>{{ item.2|date:"d M Y" }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+                {#                <div class="subscription-item bg-shadow blue-card">#}
+                {#                    <header class="h3-row">#}
+                {#                        <h3>Подписка №341</h3>#}
+                {#                        <span class="not-paid">Не оплачено</span>#}
+                {#                    </header>#}
+                {#                    <ul class="text-list">#}
+                {#                        <li>#}
+                {#                            <span>Класс:</span>#}
+                {#                            <p>2 класс</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Программа:</span>#}
+                {#                            <p>Русский язык</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Дата подключения:</span>#}
+                {#                            <p>27:12:2021 4:57</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Конец подписки:</span>#}
+                {#                            <p>27:12:2022 4:57</p>#}
+                {#                        </li>#}
+                {#                    </ul>#}
+                {#                    <footer>#}
+                {#                        <button class="btn btn-blue">Оплатить</button>#}
+                {#                    </footer>#}
+                {#                </div>#}
+                {#                <div class="subscription-item bg-shadow blue-card">#}
+                {#                    <header class="h3-row">#}
+                {#                        <h3>Подписка №341</h3>#}
+                {#                        <span class="not-paid">Не оплачено</span>#}
+                {#                    </header>#}
+                {#                    <ul class="text-list">#}
+                {#                        <li>#}
+                {#                            <span>Класс:</span>#}
+                {#                            <p>2 класс</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Программа:</span>#}
+                {#                            <p>Русский язык</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Дата подключения:</span>#}
+                {#                            <p>27:12:2021 4:57</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Конец подписки:</span>#}
+                {#                            <p>27:12:2022 4:57</p>#}
+                {#                        </li>#}
+                {#                    </ul>#}
+                {#                    <footer>#}
+                {#                        <button class="btn btn-blue">Оплатить</button>#}
+                {#                    </footer>#}
+                {#                </div>#}
+                {#                <div class="subscription-item bg-shadow blue-card">#}
+                {#                    <header class="h3-row">#}
+                {#                        <h3>Подписка №341</h3>#}
+                {#                        <span class="paid">Оплачено</span>#}
+                {#                    </header>#}
+                {#                    <ul class="text-list">#}
+                {#                        <li>#}
+                {#                            <span>Класс:</span>#}
+                {#                            <p>2 класс</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Программа:</span>#}
+                {#                            <p>Русский язык</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Дата подключения:</span>#}
+                {#                            <p>27:12:2021 4:57</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Конец подписки:</span>#}
+                {#                            <p>27:12:2022 4:57</p>#}
+                {#                        </li>#}
+                {#                    </ul>#}
+                {#                    <footer>#}
+                {#                        <button class="btn btn-orange">Отменить</button>#}
+                {#                    </footer>#}
+                {#                </div>#}
+                {#                <div class="subscription-item bg-shadow blue-card">#}
+                {#                    <header class="h3-row">#}
+                {#                        <h3>Подписка №341</h3>#}
+                {#                        <span class="paid">Оплачено</span>#}
+                {#                    </header>#}
+                {#                    <ul class="text-list">#}
+                {#                        <li>#}
+                {#                            <span>Класс:</span>#}
+                {#                            <p>2 класс</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Программа:</span>#}
+                {#                            <p>Русский язык</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Дата подключения:</span>#}
+                {#                            <p>27:12:2021 4:57</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Конец подписки:</span>#}
+                {#                            <p>27:12:2022 4:57</p>#}
+                {#                        </li>#}
+                {#                    </ul>#}
+                {#                    <footer>#}
+                {#                        <button class="btn btn-orange">Отменить</button>#}
+                {#                    </footer>#}
+                {#                </div>#}
+                {#                <div class="subscription-item bg-shadow blue-card">#}
+                {#                    <header class="h3-row">#}
+                {#                        <h3>Подписка №341</h3>#}
+                {#                        <span class="paid">Оплачено</span>#}
+                {#                    </header>#}
+                {#                    <ul class="text-list">#}
+                {#                        <li>#}
+                {#                            <span>Класс:</span>#}
+                {#                            <p>2 класс</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Программа:</span>#}
+                {#                            <p>Русский язык</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Дата подключения:</span>#}
+                {#                            <p>27:12:2021 4:57</p>#}
+                {#                        </li>#}
+                {#                        <li>#}
+                {#                            <span>Конец подписки:</span>#}
+                {#                            <p>27:12:2022 4:57</p>#}
+                {#                        </li>#}
+                {#                    </ul>#}
+                {#                    <footer>#}
+                {#                        <button class="btn btn-orange">Отменить</button>#}
+                {#                    </footer>#}
+                {#                </div>#}
+            </div>
+        </section>
+
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base_register.html' %}
+{% load i18n %}
+{% block content %}
+    <section class="form-login">
+        <div class="form-login-content">
+            <div class="form-login-block pink-card">
+                <h2>Вход</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="username" id="username-user" required placeholder="Имя пользователя"
+                           />
+                    <input type="password" name="password" id="password-user" required placeholder="Пароль"
+                           />
+                    <button class="btn btn-blue">Войти</button>
+                </form>
+                {% if not_exists %}
+                    <p style="color:#ff0000;">Пользователь не существует</p>
+                {% endif %}
+                <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+            </div>
+            <footer class="footer-form">
+                <p>Ещё нет аккаунта?</p>
+                <a href="{% url 'register' %}">Зарегистрироваться</a>
+            </footer>
+        </div>
+
+    </section>
+{% endblock %}

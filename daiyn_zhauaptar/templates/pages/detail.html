@@ -1,0 +1,440 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block side_block %}
+    {% for key, value in subject_dict.items %}
+
+        <li class="link-nav">
+        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M21 3C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V20C22 20.2652 21.8946 20.5196 21.7071 20.7071C21.5196 20.8946 21.2652 21 21 21H3C2.73478 21 2.48043 20.8946 2.29289 20.7071C2.10536 20.5196 2 20.2652 2 20V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H21ZM9.399 8H7.399L4.199 16H6.353L6.753 15H10.043L10.443 16H12.598L9.399 8ZM19 8H17V10H16C15.2191 9.99925 14.4687 10.303 13.9082 10.8468C13.3477 11.3905 13.0213 12.1314 12.9984 12.912C12.9755 13.6925 13.2578 14.4513 13.7855 15.027C14.3131 15.6027 15.0444 15.9499 15.824 15.995L16 16H19V8ZM17 12V14H16L15.883 13.993C15.64 13.9641 15.4159 13.847 15.2534 13.664C15.0909 13.481 15.0011 13.2448 15.0011 13C15.0011 12.7552 15.0909 12.519 15.2534 12.336C15.4159 12.153 15.64 12.0359 15.883 12.007L16 12H17ZM8.399 10.885L9.244 13H7.552L8.399 10.885Z"
+                                            fill="#CBD4E0"/>
+                                </svg>
+                                {{ key }} класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                        d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                        fill="#8D9FBB"/>
+                            </svg>
+                        </span>
+        <ul class="sub-link">
+            {% for j in value %}
+                <li><a href="{% url 'detail' j key %}">{{ j }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</li>
+{% endblock %}
+{% block content %}
+    {% load static %}
+    <div class="content-page ">
+{#        <ul class="crumb bg-shadow">#}
+            {#            <li><a href="../index.html">Yergali</a></li>#}
+            {#            <li class="mob-hidden">\</li>#}
+            {#            <li class="mob-hidden"><a href="#">{{ book_name }}</a></li>#}
+            {#            <li class="mob-hidden">\</li>#}
+            {#            <li class="pc-visible">\ ... \</li>#}
+            {#            <li>Чеботаревская (Часть 1, 2)</li>#}
+{#        </ul>#}
+        <section class="school-subject">
+            <header class="bg-shadow blue-card header-school-subject">
+                <div class="img-sc-subject">
+                    <img src="{% get_media_prefix %}{{ book_image }}" alt="">
+                </div>
+                <div class="sc-subject-info">
+                    <h2>{{ book_name }}</h2>
+                    <ul class="text-list">
+                        <li>
+                            <span>Автор:</span>
+                            <p>{{ book_author }}</p>
+                        </li>
+                        <li>
+                            <span>Год:</span>
+                            <p>{{ book_year_published }}</p>
+                        </li>
+                        <li>
+                            <span>Издательство:</span>
+                            <p>{{ book_publisher }}</p>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <div class="school-subject-description">
+                <div class="row-text">
+                    <p>{{ book_description }}</p>
+                </div>
+
+            </div>
+            <a class="more-load">Читать полностью</a>
+        </section>
+        <section class="answers">
+            <h2>Ответы:</h2>
+            <h2>Ответы:</h2>
+            <header class="answers-nav">
+                <form action="#">
+                    <div class="input-search">
+                        {#                        <input type="search" name="search-page" id="search-page" placeholder="Поиск">#}
+                        {#                        <button><img src="../../book/static/img/icons/search.png" alt="Поиск"></button>#}
+                    </div>
+                </form>
+                <nav class="row-btn answer-menu">
+                    {#                    <a class="btn btn-white" href="#one-link">1 часть</a>#}
+                    {#                    <a class="btn btn-white" href="#two-link">2 часть</a>#}
+                    {#                    <a class="btn btn-white" href="#three-link">3 часть</a>#}
+                    {#                    <a class="btn btn-white" href="#four-link">Контрольные вопросы</a>#}
+                </nav>
+            </header>
+            {% if expire %}
+                <div class="alert-block info-block">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 7H13V9H11V7Z" fill="#1C85E8"/>
+                        <path d="M13 11V15H14V17H11V13H10V11H13Z" fill="#1C85E8"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M20 3H4C3.447 3 3 3.448 3 4V20C3 20.552 3.447 21 4 21H20C20.553 21 21 20.552 21 20V4C21 3.448 20.553 3 20 3ZM5 19V5H19V19H5Z"
+                              fill="#1C85E8"/>
+                    </svg>
+                    <span>Без подписки доступ ограничен 5-ю заданиями.</span>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'subscription' %}">Оформить подписку</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Оформить подписку</a>
+                        <a href="{% url 'login' %}">Оформить подписку</a>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div id="accordion" class="accordion">
+                <div id="one-link" class="accordion-item">
+                    {#                    <div class="accordion-item-header">#}
+                    {#                        <span class="acc-name">Математика. 1 часть</span>#}
+                    {#                        <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"#}
+                    {#                             xmlns="http://www.w3.org/2000/svg">#}
+                    {#                            <path d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"#}
+                    {#                                  fill="#8D9FBB"></path>#}
+                    {#                        </svg>#}
+                    {#                    </div>#}
+                    <div>
+                        <div class="tabs">
+                            <ul class="tabs-nav">
+                                {% for i, j in answer_list %}
+                                    <!-- Кнопки -->
+                                    {% if not expire %}
+                                        <li><a class="small-btn" href="#tab-{{ i }}">{{ i }}</a></li>
+                                    {% else %}
+                                        {% if i < 6 %}
+                                            <li><a class="small-btn" href="#tab-{{ i }}">{{ i }}</a></li>
+                                        {% else %}
+                                            <li><a class="small-btn-white" href="#tab-{{ i }}">{{ i }}</a></li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+
+                            {% for i, j in answer_list %}
+                                <!-- Контент -->
+                                <div class="tabs-items">
+                                    {% if not expire %}
+
+                                        <div class="tabs-item" id="tab-{{ i }}">
+                                            <img src="{% get_media_prefix %}{{ j }}" alt="">
+                                        </div>
+                                    {% else %}
+                                        {% if i < 6 %}
+                                            <div class="tabs-item" id="tab-{{ i }}">
+                                                <img src="{% get_media_prefix %}{{ j }}" alt="">
+                                            </div>
+                                        {% endif %}
+
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {#                <div id="two-link" class="accordion-item">#}
+                {#                    <div class="accordion-item-header">#}
+                {#                        <span class=" acc-name">Математика. 2 часть</span>#}
+                {#                        <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"#}
+                {#                             xmlns="http://www.w3.org/2000/svg">#}
+                {#                            <path d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"#}
+                {#                                  fill="#8D9FBB"></path>#}
+                {#                        </svg>#}
+                {#                    </div>#}
+                {#                    <div class="accordion-item-content">#}
+                {#                        <div class="tabs">#}
+                {#                            <!-- Кнопки -->#}
+                {#                            <ul class="tabs-nav">#}
+                {#                                <li><a class="small-btn" href="#tab2-1">1</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-2">2</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-3">3</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-4">4</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-5">5</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-6">6</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-7">7</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-8">8</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-9">9</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-10">10</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab2-11">11</a></li>#}
+                {#                            </ul>#}
+                {##}
+                {#                            <!-- Контент -->#}
+                {#                            <div class="tabs-items">#}
+                {#                                <div class="tabs-item" id="tab2-1">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-2">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-3">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-4">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-5">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-6">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-7">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-8">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-9">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-10">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab2-11">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
+                {#                <div id="three-link" class="accordion-item">#}
+                {#                    <div class="accordion-item-header">#}
+                {#                        <span class="acc-name">Математика. 3 часть</span>#}
+                {#                        <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"#}
+                {#                             xmlns="http://www.w3.org/2000/svg">#}
+                {#                            <path d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"#}
+                {#                                  fill="#8D9FBB"></path>#}
+                {#                        </svg>#}
+                {#                    </div>#}
+                {#                    <div class="accordion-item-content">#}
+                {#                        <div class="tabs">#}
+                {#                            <!-- Кнопки -->#}
+                {#                            <ul class="tabs-nav">#}
+                {#                                <li><a class="small-btn" href="#tab3-1">1</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-2">2</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-3">3</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-4">4</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-5">5</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-6">6</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-7">7</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-8">8</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-9">9</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-10">10</a></li>#}
+                {#                                <li><a class="small-btn" href="#tab3-11">11</a></li>#}
+                {#                            </ul>#}
+                {##}
+                {#                            <!-- Контент -->#}
+                {#                            <div class="tabs-items">#}
+                {#                                <div class="tabs-item" id="tab3-1">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-2">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-3">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-4">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-5">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-6">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-7">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-8">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-9">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-10">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab3-11">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
+                {#                <div id="four-link" class="accordion-item">#}
+                {#                    <div class="accordion-item-header">#}
+                {#                        <span class="acc-name">Математике. Контрольные вопросы</span>#}
+                {#                        <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"#}
+                {#                             xmlns="http://www.w3.org/2000/svg">#}
+                {#                            <path d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"#}
+                {#                                  fill="#8D9FBB"></path>#}
+                {#                        </svg>#}
+                {#                    </div>#}
+                {#                    <div class="accordion-item-content">#}
+                {#                        <div class="tabs">#}
+                {#                            <!-- Кнопки -->#}
+                {#                            <ul class="tabs-nav">#}
+                {#                                <li><a class="small-btn btn-disable">1</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">2</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">3</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">4</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">5</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">6</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">7</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">8</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">9</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">10</a></li>#}
+                {#                                <li><a class="small-btn btn-disable">11</a></li>#}
+                {#                            </ul>#}
+                {##}
+                {#                            <!-- Контент -->#}
+                {#                            <div class="tabs-items">#}
+                {#                                <div class="tabs-item" id="tab4-1">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-2">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-3">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-4">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-5">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-6">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-7">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-8">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-9">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-10">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/1.jpg" alt="">#}
+                {#                                </div>#}
+                {#                                <div class="tabs-item" id="tab4-11">#}
+                {#                                    <img src="../../book/static/img/content/answers/math/2.png" alt="">#}
+                {#                                </div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
+            </div>
+        </section>
+        {#        <section class="popular">#}
+        {#            <h2>Ещё решебники за 5 класс</h2>#}
+        {#            <div class="owl-carousel popular-books width-layout">#}
+        {#                <div class="item">#}
+        {#                    <div class="card-book-item">#}
+        {#                        <a href="" class="img-book">#}
+        {#                            <img src="../../book/static/img/content/books/1.jpg" alt="">#}
+        {#                            <span class="label-book">2017г.</span>#}
+        {#                        </a>#}
+        {#                        <h3>Математика</h3>#}
+        {#                        <span class="autor-book">#}
+        {#                                Герасимов В. Д.,<br>#}
+        {#                                Пирютко О. Н.#}
+        {#                            </span>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="item">#}
+        {#                    <div class="card-book-item">#}
+        {#                        <a href="" class="img-book">#}
+        {#                            <img src="../../book/static/img/content/books/2.jpg" alt="">#}
+        {#                            <span class="label-book">2007г.</span>#}
+        {#                        </a>#}
+        {#                        <h3>Русский язык</h3>#}
+        {#                        <span class="autor-book">#}
+        {#                                Герасимов В. Д.,<br>#}
+        {#                                Пирютко О. Н.#}
+        {#                            </span>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="item">#}
+        {#                    <div class="card-book-item">#}
+        {#                        <a href="" class="img-book">#}
+        {#                            <img src="../../book/static/img/content/books/3.jpg" alt="">#}
+        {#                            <span class="label-book">2012г.</span>#}
+        {#                        </a>#}
+        {#                        <h3>Математика</h3>#}
+        {#                        <span class="autor-book">#}
+        {#                                Герасимов В. Д.,<br>#}
+        {#                                Пирютко О. Н.#}
+        {#                            </span>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="item">#}
+        {#                    <div class="card-book-item">#}
+        {#                        <a href="" class="img-book">#}
+        {#                            <img src="../../book/static/img/content/books/4.jpg" alt="">#}
+        {#                            <span class="label-book">2010г.</span>#}
+        {#                        </a>#}
+        {#                        <h3>Русский язык</h3>#}
+        {#                        <span class="autor-book">#}
+        {#                                Герасимов В. Д.,<br>#}
+        {#                                Пирютко О. Н.#}
+        {#                            </span>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="item">#}
+        {#                    <div class="card-book-item">#}
+        {#                        <a href="" class="img-book">#}
+        {#                            <img src="../../book/static/img/content/books/5.jpg" alt="">#}
+        {#                            <span class="label-book">1998г.</span>#}
+        {#                        </a>#}
+        {#                        <h3>Математика</h3>#}
+        {#                        <span class="autor-book">#}
+        {#                                Герасимов В. Д.,<br>#}
+        {#                                Пирютко О. Н.#}
+        {#                            </span>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="item">#}
+        {#                    <div class="card-book-item">#}
+        {#                        <a href="" class="img-book">#}
+        {#                            <img src="../../book/static/img/content/books/6.jpg" alt="">#}
+        {#                            <span class="label-book">2011г.</span>#}
+        {#                        </a>#}
+        {#                        <h3>Химия</h3>#}
+        {#                        <span class="autor-book">#}
+        {#                                Герасимов В. Д.,<br>#}
+        {#                                Пирютко О. Н.#}
+        {#                            </span>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </section>#}
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/ui-kit.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+</head>
+
+<body>
+<header class="width-layout header-login">
+    <div class="logo">
+        <a class="link-disable" href="{% url 'index' %}"><img src="{% static 'images/logo.svg' %}" alt="">
+            <p>Zhauap</p>
+        </a>
+    </div>
+</header>
+
+{% block content %}
+{% endblock %}
+
+<footer class="footer-page">
+    <div class="footer-content width-layout">
+        <a class="link-small" href="#">политика конфиденциальности</a>
+        <p class="copyright">© Zhauap.kz 2022</p>
+    </div>
+</footer>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/accordion.js' %}"></script>
+
+</body>
+
+</html>

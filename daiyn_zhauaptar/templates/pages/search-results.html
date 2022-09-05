@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты поиска</title>
+    <link rel="shortcut icon" href="../../book/static/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../book/static/style/ui-kit.css">
+    <link rel="stylesheet" href="../../book/static/style/style.css">
+    <link rel="stylesheet" href="../../book/static/style/media.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../book/static/style/owl.carousel.min.css">
+</head>
+
+<body>
+    <header class="width-layout header-page">
+        <div class="logo">
+            <a class="link-disable" href="../index.html"><img src="../../book/static/img/logo.svg" alt="">
+                <p>Yergali</p>
+            </a>
+        </div>
+        <div class="header-right">
+            <form action="#">
+                <div class="input-search">
+                    <input type="search" name="search-page" id="search-page" placeholder="Поиск">
+                    <button><img src="../../book/static/img/icons/search.png" alt="Поиск"></button>
+                </div>
+            </form>
+            <div class="row-btn">
+                <a class="btn-pc" href="../registration/registration.html">Регистрация</a>
+                <a class="btn btn-blue btn-pc" href="../registration/login.html">Вход</a>
+                <div class="search-icons">
+                    <img src="../../book/static/img/icons/search-icons.png" alt="Профиль">
+                </div>
+                <div class="user-icons">
+                    <a href="../registration/login.html"> <img src="../../book/static/img/icons/user.png" alt="Профиль"></a>
+                </div>
+                <div class="humb-icons">
+                    <img src="../../book/static/img/icons/menu.png" alt="МЕНЮ">
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <main class="main-content width-layout">
+        <aside class="left-navbar bg-shadow">
+            <nav class="navigation-page">
+                <ul>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21 3C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V20C22 20.2652 21.8946 20.5196 21.7071 20.7071C21.5196 20.8946 21.2652 21 21 21H3C2.73478 21 2.48043 20.8946 2.29289 20.7071C2.10536 20.5196 2 20.2652 2 20V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H21ZM9.399 8H7.399L4.199 16H6.353L6.753 15H10.043L10.443 16H12.598L9.399 8ZM19 8H17V10H16C15.2191 9.99925 14.4687 10.303 13.9082 10.8468C13.3477 11.3905 13.0213 12.1314 12.9984 12.912C12.9755 13.6925 13.2578 14.4513 13.7855 15.027C14.3131 15.6027 15.0444 15.9499 15.824 15.995L16 16H19V8ZM17 12V14H16L15.883 13.993C15.64 13.9641 15.4159 13.847 15.2534 13.664C15.0909 13.481 15.0011 13.2448 15.0011 13C15.0011 12.7552 15.0909 12.519 15.2534 12.336C15.4159 12.153 15.64 12.0359 15.883 12.007L16 12H17ZM8.399 10.885L9.244 13H7.552L8.399 10.885Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+                                1 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.849 11.808L17.142 11.101L7.242 21.001H3V16.758L14.313 5.444L19.97 11.101C20.1575 11.2885 20.2628 11.5428 20.2628 11.808C20.2628 12.0732 20.1575 12.3275 19.97 12.515L12.9 19.586L11.485 18.172L17.849 11.808ZM18.556 2.616L21.385 5.444C21.5725 5.63153 21.6778 5.88583 21.6778 6.151C21.6778 6.41616 21.5725 6.67047 21.385 6.858L19.97 8.273L15.728 4.03L17.142 2.616C17.3295 2.42853 17.5838 2.32321 17.849 2.32321C18.1142 2.32321 18.3685 2.42853 18.556 2.616Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+
+                                2 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M13.289 6.216L18.228 2.375C18.4203 2.22562 18.6605 2.15153 18.9035 2.16663C19.1465 2.18173 19.3757 2.28497 19.548 2.457L22.543 5.451C22.7153 5.62338 22.8187 5.85274 22.8338 6.09599C22.8489 6.33925 22.7747 6.57964 22.625 6.772L18.785 11.71C19.0558 12.8144 19.072 13.9659 18.8325 15.0775C18.5931 16.1891 18.1041 17.2318 17.4027 18.1267C16.7012 19.0217 15.8056 19.7456 14.7833 20.2437C13.7611 20.7418 12.6391 21.0011 11.502 21.002C8 21.002 3.5 19.5 1 18C4.98 15 4.047 13.19 4.5 11.5C5.558 7.55 9.342 5.243 13.289 6.216ZM16.702 8.095C16.767 8.158 16.832 8.223 16.895 8.289L18.03 9.423L20.505 6.241L18.759 4.495L15.577 6.97L16.702 8.095Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+
+                                3 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9 13V16H15V13H22V20C22 20.2652 21.8946 20.5196 21.7071 20.7071C21.5196 20.8946 21.2652 21 21 21H3C2.73478 21 2.48043 20.8946 2.29289 20.7071C2.10536 20.5196 2 20.2652 2 20V13H9ZM11 11H13V14H11V11ZM7 5V2C7 1.73478 7.10536 1.48043 7.29289 1.29289C7.48043 1.10536 7.73478 1 8 1H16C16.2652 1 16.5196 1.10536 16.7071 1.29289C16.8946 1.48043 17 1.73478 17 2V5H21C21.2652 5 21.5196 5.10536 21.7071 5.29289C21.8946 5.48043 22 5.73478 22 6V11H15V9H9V11H2V6C2 5.73478 2.10536 5.48043 2.29289 5.29289C2.48043 5.10536 2.73478 5 3 5H7ZM9 3V5H15V3H9Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+
+                                4 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M3 15V3C3 2.73478 3.10536 2.48043 3.29289 2.29289C3.48043 2.10536 3.73478 2 4 2H20C20.2652 2 20.5196 2.10536 20.7071 2.29289C20.8946 2.48043 21 2.73478 21 3V19C21 19.7956 20.6839 20.5587 20.1213 21.1213C19.5587 21.6839 18.7956 22 18 22H4C3.20435 22 2.44129 21.6839 1.87868 21.1213C1.31607 20.5587 1 19.7956 1 19V17H17V19C17 19.2652 17.1054 19.5196 17.2929 19.7071C17.4804 19.8946 17.7348 20 18 20C18.2652 20 18.5196 19.8946 18.7071 19.7071C18.8946 19.5196 19 19.2652 19 19V15H3Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+
+                                5 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.92901 13.207L7.05001 15.328L8.46401 13.914L6.34401 11.793L8.46401 9.672L11.293 12.5L12.707 11.086L9.88001 8.257L12 6.136L14.121 8.257L15.536 6.843L13.414 4.722L16.243 1.893C16.4305 1.70553 16.6848 1.60021 16.95 1.60021C17.2152 1.60021 17.4695 1.70553 17.657 1.893L22.607 6.843C22.7945 7.03053 22.8998 7.28483 22.8998 7.55C22.8998 7.81516 22.7945 8.06947 22.607 8.257L7.75701 23.107C7.56948 23.2945 7.31517 23.3998 7.05001 23.3998C6.78484 23.3998 6.53053 23.2945 6.34301 23.107L1.39301 18.157C1.20554 17.9695 1.10022 17.7152 1.10022 17.45C1.10022 17.1848 1.20554 16.9305 1.39301 16.743L4.92901 13.207Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+
+
+                                6 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4 2H20C20.2652 2 20.5196 2.10536 20.7071 2.29289C20.8946 2.48043 21 2.73478 21 3V21C21 21.2652 20.8946 21.5196 20.7071 21.7071C20.5196 21.8946 20.2652 22 20 22H4C3.73478 22 3.48043 21.8946 3.29289 21.7071C3.10536 21.5196 3 21.2652 3 21V3C3 2.73478 3.10536 2.48043 3.29289 2.29289C3.48043 2.10536 3.73478 2 4 2ZM7 12V14H9V12H7ZM7 16V18H9V16H7ZM11 12V14H13V12H11ZM11 16V18H13V16H11ZM15 12V18H17V12H15ZM7 6V10H17V6H7Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+
+
+                                7 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21 4H7C6.46957 4 5.96086 4.21071 5.58579 4.58579C5.21071 4.96086 5 5.46957 5 6C5 6.53043 5.21071 7.03914 5.58579 7.41421C5.96086 7.78929 6.46957 8 7 8H21V21C21 21.2652 20.8946 21.5196 20.7071 21.7071C20.5196 21.8946 20.2652 22 20 22H7C5.93913 22 4.92172 21.5786 4.17157 20.8284C3.42143 20.0783 3 19.0609 3 18V6C3 4.93913 3.42143 3.92172 4.17157 3.17157C4.92172 2.42143 5.93913 2 7 2H20C20.2652 2 20.5196 2.10536 20.7071 2.29289C20.8946 2.48043 21 2.73478 21 3V4ZM20 7H7C6.73478 7 6.48043 6.89464 6.29289 6.70711C6.10536 6.51957 6 6.26522 6 6C6 5.73478 6.10536 5.48043 6.29289 5.29289C6.48043 5.10536 6.73478 5 7 5H20V7Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+                                8 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21 2C6 2 4 16 3 22H4.998C5.664 18.667 7.331 16.834 10 16.5C14 16 17 12.5 18 9.5L16.5 8.5L17.5 7.5C18.5 6.5 19.504 5 21 2Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+                                9 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.92896 21.485L10.775 15.639C11.2002 15.753 11.6512 15.7235 12.058 15.555C12.4648 15.3865 12.8046 15.0886 13.0248 14.7073C13.2449 14.326 13.3331 13.8827 13.2757 13.4462C13.2182 13.0097 13.0183 12.6043 12.707 12.293C12.3956 11.9817 11.9903 11.7818 11.5538 11.7243C11.1173 11.6668 10.674 11.755 10.2927 11.9752C9.9114 12.1953 9.61342 12.5352 9.44495 12.9419C9.27649 13.3487 9.24697 13.7997 9.36096 14.225L3.51496 20.071L2.45496 19.011C5.28196 15.711 6.34296 12.057 7.75696 5.929L14.121 5.222L19.778 10.879L19.071 17.243C12.943 18.657 9.28896 19.718 5.98996 22.546L4.92896 21.486V21.485ZM16.596 2.04L22.943 8.386C23.0084 8.45129 23.0544 8.53343 23.0759 8.6233C23.0975 8.71317 23.0937 8.80726 23.065 8.8951C23.0363 8.98295 22.9838 9.06113 22.9134 9.12095C22.8429 9.18077 22.7573 9.21991 22.666 9.234L21.192 9.464L15.536 3.808L15.748 2.323C15.7611 2.23117 15.7996 2.14482 15.8591 2.0736C15.9185 2.00239 15.9966 1.94912 16.0846 1.91975C16.1726 1.89038 16.267 1.88608 16.3573 1.90731C16.4477 1.92855 16.5303 1.97449 16.596 2.04Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+                                10 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-nav">
+                        <span>
+                            <span class="link-name">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16.33 13.5C17.1628 12.8455 17.8359 12.0103 18.2984 11.0575C18.761 10.1047 19.0009 9.05916 19 8H21C21.0011 9.41043 20.6701 10.8013 20.0339 12.0601C19.3977 13.3189 18.4742 14.4103 17.338 15.246L19.866 19.624C20.1312 20.0834 20.2031 20.6293 20.0658 21.1416C19.9286 21.6539 19.5934 22.0908 19.134 22.356L15.607 16.248C14.4697 16.7456 13.2415 17.0016 12 17C10.7586 17.0016 9.53038 16.7456 8.39303 16.248L4.86603 22.356C4.40669 22.0908 4.07151 21.6539 3.93424 21.1416C3.79696 20.6293 3.86883 20.0834 4.13403 19.624L9.19703 10.854C8.692 10.3574 8.32779 9.73574 8.1416 9.05239C7.95541 8.36905 7.9539 7.64852 8.13724 6.9644C8.32057 6.28028 8.68218 5.65707 9.18513 5.1584C9.68808 4.65973 10.3144 4.30347 11 4.126V2H13V4.126C13.6857 4.30347 14.312 4.65973 14.8149 5.1584C15.3179 5.65707 15.6795 6.28028 15.8628 6.9644C16.0462 7.64852 16.0447 8.36905 15.8585 9.05239C15.6723 9.73574 15.3081 10.3574 14.803 10.854L16.33 13.5ZM14.6 14.502L13.072 11.855C12.3713 12.0495 11.6308 12.0495 10.93 11.855L9.40203 14.502C10.206 14.823 11.082 15 12.001 15C12.919 15 13.796 14.823 14.6 14.502ZM12 9C12.2653 9 12.5196 8.89464 12.7071 8.70711C12.8947 8.51957 13 8.26522 13 8C13 7.73478 12.8947 7.48043 12.7071 7.29289C12.5196 7.10536 12.2653 7 12 7C11.7348 7 11.4805 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8C11 8.26522 11.1054 8.51957 11.2929 8.70711C11.4805 8.89464 11.7348 9 12 9Z"
+                                        fill="#CBD4E0" />
+                                </svg>
+                                11 класс
+                            </span>
+                            <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                    fill="#8D9FBB" />
+                            </svg>
+                        </span>
+                        <ul class="sub-link">
+                            <li><a href="#">Математика</a></li>
+                            <li><a href="#">Английский язык</a></li>
+                            <li><a href="#">Геометрия</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="overlay-menu"></div>
+        </aside>
+        <div class="content-page ">
+            <ul class="crumb bg-shadow">
+                <li><a href="../index.html">Yergali</a></li>
+                <li>\</li>
+                <li>Результаты поиска</li>
+            </ul>
+            <section class="results-section">
+                <div class="h2-row">
+                    <h2>Результаты поиска</h2>
+                    <span>(546 результата)</span>
+                </div>
+                <div class="results-item blue-card">
+                    <h2>ГДЗ по Математике для 5 класса</h2>
+                    <ul class="text-list">
+                        <li>
+                            <span>Авторы:</span>
+                            <p>Чеботаревская Т. М., Николаева В. В.</p>
+                        </li>
+                        <li>
+                            <span>Год</span>
+                            <p>2018</p>
+                        </li>
+                        <li>
+                            <span>Издательство</span>
+                            <p>Начальная школа</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="results-item blue-card">
+                    <h2>ГДЗ по Математике для 7 класса</h2>
+                    <p>На данной странице вы найдёте готовые ответы к упражнениям по математике за 4 класс к 1-ой и 2-ой
+                        частям учебника (126 уроков). Задачи выполнены в соответствии с нормами оформления. Решения в
+                        столбик присутствуют во всех номерах, где это необходимо.</p>
+                </div>
+                <div class="results-item blue-card">
+                    <h2>ГДЗ по Математике для 5 класса</h2>
+                    <ul class="text-list">
+                        <li>
+                            <span>Авторы:</span>
+                            <p>Чеботаревская Т. М., Николаева В. В.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="results-item blue-card">
+                    <h2>ГДЗ по Русскому языку для 2 класса</h2>
+                    <ul class="text-list">
+                        <li>
+                            <span>Авторы:</span>
+                            <p>Чеботаревская Т. М., Николаева В. В.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="results-item blue-card">
+                    <h2>ГДЗ по Физике для 7 класса</h2>
+                    <p>На данной странице вы найдёте готовые ответы к упражнениям по математике за 4 класс к 1-ой и 2-ой
+                        частям учебника (126 уроков). Задачи выполнены в соответствии с нормами оформления. Решения в
+                        столбик присутствуют во всех номерах, где это необходимо.</p>
+                </div>
+            </section>
+            <ul class="pagination">
+                <li><button class="prev-pag">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.298 5.98959L8.2876 12L14.298 18.0104L15.7122 16.5962L11.116 12L15.7122 7.40381L14.298 5.98959Z"
+                                fill="#8D9FBB" />
+                        </svg>
+                    </button></li>
+                <li><a class="first-pag pag-btn active" href="#">1</a></li>
+                <li><a class="pag-btn" href="#">2</a></li>
+                <li><a class="pag-btn" href="#">3</a></li>
+                <li class="more-pag pag-btn">...</li>
+                <li><a class="last-pag pag-btn" href="#">45</a></li>
+                <li><button class="next-pag">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.70181 18.0104L15.7122 12L9.70181 5.98959L8.2876 7.40381L12.8838 12L8.2876 16.5962L9.70181 18.0104Z"
+                                fill="#8D9FBB" />
+                        </svg>
+                    </button></li>
+            </ul>
+        </div>
+    </main>
+    <footer class="footer-page">
+        <div class="footer-content width-layout">
+            <a class="link-small" href="#">политика конфиденциальности</a>
+            <p class="copyright">© Yergali.ru 2022</p>
+        </div>
+    </footer>
+    <script src="../../book/static/script/jquery.min.js"></script>
+    <script src="../../book/static/script/owl.carousel.min.js"></script>
+    <script src="../../book/static/script/main.js"></script>
+    <script src="../../book/static/script/accordion.js"></script>
+
+</body>
+
+</html>

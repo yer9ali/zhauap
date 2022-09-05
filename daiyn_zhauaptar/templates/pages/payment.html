@@ -1,0 +1,98 @@
+{% extends 'pages/base_profile.html' %}
+{% load i18n %}
+{% block content %}
+    <div class="content-page ">
+{#        <ul class="crumb bg-shadow">#}
+{#            <li><a href="{% url 'index' %}">Yergali</a></li>#}
+{#            <li class="mob-hidden">\</li>#}
+{#            <li class="mob-hidden"><a href="#">Профиль</a></li>#}
+{#            <li class="mob-hidden">\</li>#}
+{#            <li class="pc-visible">\ ... \</li>#}
+{#            <li>Оплата</li>#}
+{#        </ul>#}
+        <section class="subscription-section payment-section">
+            <div class="h2-row">
+                <h2>Оплата за ГДЗ</h2>
+            </div>
+            <div class="payment-row">
+                <div class="alert-block attention-block">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM13 13V7H11V13H13ZM13 17V15H11V17H13ZM4 12C4 16.42 7.58 20 12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12Z"
+                              fill="#FE9E1A"/>
+                    </svg>
+                    <span>Внимание! Перед оплатой ознакомьтесь с содержанием предметов и книг вашего класса</span>
+                </div>
+            </div>
+            <div class="payment-content bg-shadow">
+                <h4>Ваш номер счёта:<span>547239</span></h4>
+                <form action="" method="post">
+                    <div class="input-row">
+                        <div class="select-row">
+                            <select>
+                                <option value="0">Класс ученика</option>
+                                <option value="1">1 </option>
+                                <option value="2">2 класс</option>
+                                <option value="3">3 класс</option>
+                                <option value="4">4 класс</option>
+                                <option value="5">5 класс</option>
+                                <option value="6">6 класс</option>
+                                <option value="7">7 класс</option>
+                                <option value="8">8 класс</option>
+                                <option value="9">9 класс</option>
+                                <option value="10">10 класс</option>
+                                <option value="11">11 класс</option>
+                            </select>
+                        </div>
+                        <div class="select-row">
+                            <select>
+                                <option value="0">Срок подписки</option>
+                                <option value="1">1 месяц</option>
+                                <option value="3">3 месяца</option>
+                                <option value="6">6 месяцев</option>
+                                <option value="7">1 год</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row-btn">
+                        <a class="btn btn-orange open-modal" data-modal="#modal1">Инструкция</a>
+                        <button class="btn btn-blue">Оплата</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+
+    </div>
+    </main>
+    <div class='modal' id='modal1'>
+        <button class="close-modal" data-modal="#modal1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
+                        fill="#8D9FBB"/>
+            </svg>
+        </button>
+        <div class='content-modal'>
+            <h2>Инструкция по оплате</h2>
+            <div class="instruction-step">
+                <span>Шаг 1</span>
+                <iframe src="https://www.youtube.com/embed/XXjgwpayNoM" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="instruction-step">
+                <span>Шаг 2</span>
+                <iframe src="https://www.youtube.com/embed/xpAg0spgFJA" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="instruction-step">
+                <span>Шаг 3</span>
+                <iframe src="https://www.youtube.com/embed/Eq6EYcpWB_c" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock %}
