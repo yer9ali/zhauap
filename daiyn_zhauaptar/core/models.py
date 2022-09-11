@@ -5,6 +5,7 @@ from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.db.models import Model, DateTimeField
+from django.db.models.fields.files import FileField
 from django.utils.translation import gettext_lazy as _
 
 from daiyn_zhauaptar.users.models import User
@@ -67,8 +68,9 @@ class Book(AbstractDateTime):
     year_published = models.CharField(_('год публикации'), max_length=4, blank=True, default='')
     language = models.CharField(_('язык'), choices=LANGUAGE_TYPE, default='kz', max_length=5)
 
-    image = models.FileField(_('картинка'), upload_to='content/', blank=True)
-
+    image = FileField(
+        upload_to="content/", verbose_name="Изображение", max_length=1000
+    )
 
     class Meta:
         db_table = 'book'
@@ -113,7 +115,9 @@ class Answer(AbstractDateTime):
     id = models.UUIDField(_('id'), primary_key=True, default=uuid.uuid4, editable=False)
     book = models.ForeignKey(Book, verbose_name=_('книга'), db_column='book_id', on_delete=models.CASCADE)
     number = models.IntegerField(_('номер ответа'), blank=True)
-    photo = models.FileField(_('картинка'), upload_to='content/', null=False, blank=False)
+    photo = FileField(
+        upload_to="content/", verbose_name="Изображение", max_length=1000
+    )
 
     class Meta:
         db_table = 'answer'
@@ -123,7 +127,9 @@ class Answer(AbstractDateTime):
 
 class MainBooks(AbstractDateTime):
     id = models.UUIDField(_('id'), primary_key=True, default=uuid.uuid4, editable=False)
-    photo = models.FileField(_('картинка'), upload_to='content/', blank=True)
+    photo = FileField(
+        upload_to="content/", verbose_name="Изображение", max_length=1000
+    )
     book = models.OneToOneField(Book, unique=True, verbose_name=_('книга'),
                                 db_column='book_id', on_delete=models.CASCADE)
 
