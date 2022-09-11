@@ -56,7 +56,7 @@ class Book(AbstractDateTime):
 
     clas = models.IntegerField(_('класс'), validators=[MinValueValidator(1), MaxValueValidator(12)])
     year_published = models.CharField(_('год публикации'), max_length=4, blank=True, default='')
-    image = models.ImageField(_('картинка'), upload_to='content/', blank=True)
+    image = models.FileField(_('картинка'), upload_to='content/', blank=True)
 
     class Meta:
         db_table = 'book'
@@ -99,7 +99,7 @@ class Answer(AbstractDateTime):
     id = models.UUIDField(_('id'), primary_key=True, default=uuid.uuid4, editable=False)
     book = models.ForeignKey(Book, verbose_name=_('книга'), db_column='book_id', on_delete=models.CASCADE)
     number = models.IntegerField(_('номер ответа'), blank=True)
-    photo = models.ImageField(_('картинка'), upload_to='content/', blank=True)
+    photo = models.FileField(_('картинка'), upload_to='content/', blank=True)
 
     class Meta:
         db_table = 'answer'
@@ -107,7 +107,7 @@ class Answer(AbstractDateTime):
 
 class MainBooks(AbstractDateTime):
     id = models.UUIDField(_('id'), primary_key=True, default=uuid.uuid4, editable=False)
-    photo = models.ImageField(_('картинка'), upload_to='content/', blank=True)
+    photo = models.FileField(_('картинка'), upload_to='content/', blank=True)
     book = models.OneToOneField(Book, unique=True, verbose_name=_('книга'),
                                 db_column='book_id', on_delete=models.CASCADE)
 
