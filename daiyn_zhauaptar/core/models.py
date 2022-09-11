@@ -9,6 +9,11 @@ from django.utils.translation import gettext_lazy as _
 
 from daiyn_zhauaptar.users.models import User
 
+LANGUAGE_TYPE = (
+    ('kz', 'қаз'),
+    ('ru', 'рус')
+)
+
 
 class AbstractDateTime(Model):
     datetime_created = DateTimeField("Время создания", auto_now_add=True)
@@ -28,6 +33,8 @@ class Payment(AbstractDateTime):
 
     class Meta:
         db_table = 'payment'
+        verbose_name = 'Оплата'
+        verbose_name_plural = 'Оплата'
 
 
 class Subscription(AbstractDateTime):
@@ -36,7 +43,7 @@ class Subscription(AbstractDateTime):
     activation_date = models.DateTimeField(_('activation_date'))
     expiration_date = models.DateTimeField(_('expiration_date'))
 
-    payment = models.ForeignKey(Payment, db_column='payment_id', on_delete=models.CASCADE)
+    # payment = models.ForeignKey(Payment, db_column='payment_id', on_delete=models.CASCADE, null=True)
     user_id = models.ForeignKey(User, db_column='user_id', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
@@ -44,6 +51,8 @@ class Subscription(AbstractDateTime):
 
     class Meta:
         db_table = 'subscription'
+        verbose_name = 'Подписки'
+        verbose_name_plural = 'Подписки'
 
 
 class Book(AbstractDateTime):
@@ -51,18 +60,23 @@ class Book(AbstractDateTime):
 
     name = models.CharField(_('name'), max_length=50)
     description = models.TextField(_('описание'), max_length=10000, blank=True)
-    author = models.CharField(_('автор'), max_length=100, blank=True)
+    author = models.CharField(_('автор'), max_length=100, null=False, blank=False)
     publisher = models.CharField(_('издатель'), max_length=100, blank=True)
 
     clas = models.IntegerField(_('класс'), validators=[MinValueValidator(1), MaxValueValidator(12)])
     year_published = models.CharField(_('год публикации'), max_length=4, blank=True, default='')
+    language = models.CharField(_('язык'), choices=LANGUAGE_TYPE, default='kz', max_length=5)
+
     image = models.FileField(_('картинка'), upload_to='content/', blank=True)
+
 
     class Meta:
         db_table = 'book'
+        verbose_name = "Книги"
+        verbose_name_plural = "Книги"
 
     def __str__(self):
-        return f'{self.name} - {self.clas}'
+        return f'{self.name} - {self.clas} - {self.author}'
 
 
 # class CustomUser(AbstractUser):
@@ -99,10 +113,12 @@ class Answer(AbstractDateTime):
     id = models.UUIDField(_('id'), primary_key=True, default=uuid.uuid4, editable=False)
     book = models.ForeignKey(Book, verbose_name=_('книга'), db_column='book_id', on_delete=models.CASCADE)
     number = models.IntegerField(_('номер ответа'), blank=True)
-    photo = models.FileField(_('картинка'), upload_to='content/', blank=True)
+    photo = models.FileField(_('картинка'), upload_to='content/', null=False, blank=False)
 
     class Meta:
         db_table = 'answer'
+        verbose_name = 'Ответы'
+        verbose_name_plural = 'Ответы'
 
 
 class MainBooks(AbstractDateTime):
@@ -113,3 +129,5 @@ class MainBooks(AbstractDateTime):
 
     class Meta:
         db_table = 'main_book'
+        verbose_name = 'Главная'
+        verbose_name_plural = 'Главная'

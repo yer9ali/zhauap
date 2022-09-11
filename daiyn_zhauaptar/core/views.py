@@ -8,7 +8,7 @@ from django.template.loader import render_to_string
 from django.utils import timezone
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
-
+from datetime import datetime
 from daiyn_zhauaptar.core.forms import UserRegistrationForm
 from daiyn_zhauaptar.core.models import Book, MainBooks, Subscription, Answer
 from daiyn_zhauaptar.users.models import User
@@ -92,7 +92,8 @@ def payment(request):
 
 def subscription(request):
     subs_list = sorted(list(
-        Subscription.objects.filter(user_id=request.user.id).values_list('class_number', 'activation_date',
+        Subscription.objects.filter(expiration_date__gt=datetime.now())
+        .filter(user_id=request.user.id).values_list('class_number', 'activation_date',
                                                                          'expiration_date')))
 
     return render(request, 'pages/subscription.html',

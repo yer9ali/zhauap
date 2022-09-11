@@ -56,6 +56,7 @@
                 </div>
             </div>
             <div class="subscription-row">
+            {% if subs_list %}
                 {% for item in subs_list %}
                     <div class="subscription-item bg-shadow blue-card">
                         <header class="h3-row">
@@ -82,141 +83,10 @@
                         </ul>
                     </div>
                 {% endfor %}
-                {#                <div class="subscription-item bg-shadow blue-card">#}
-                {#                    <header class="h3-row">#}
-                {#                        <h3>Подписка №341</h3>#}
-                {#                        <span class="not-paid">Не оплачено</span>#}
-                {#                    </header>#}
-                {#                    <ul class="text-list">#}
-                {#                        <li>#}
-                {#                            <span>Класс:</span>#}
-                {#                            <p>2 класс</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Программа:</span>#}
-                {#                            <p>Русский язык</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Дата подключения:</span>#}
-                {#                            <p>27:12:2021 4:57</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Конец подписки:</span>#}
-                {#                            <p>27:12:2022 4:57</p>#}
-                {#                        </li>#}
-                {#                    </ul>#}
-                {#                    <footer>#}
-                {#                        <button class="btn btn-blue">Оплатить</button>#}
-                {#                    </footer>#}
-                {#                </div>#}
-                {#                <div class="subscription-item bg-shadow blue-card">#}
-                {#                    <header class="h3-row">#}
-                {#                        <h3>Подписка №341</h3>#}
-                {#                        <span class="not-paid">Не оплачено</span>#}
-                {#                    </header>#}
-                {#                    <ul class="text-list">#}
-                {#                        <li>#}
-                {#                            <span>Класс:</span>#}
-                {#                            <p>2 класс</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Программа:</span>#}
-                {#                            <p>Русский язык</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Дата подключения:</span>#}
-                {#                            <p>27:12:2021 4:57</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Конец подписки:</span>#}
-                {#                            <p>27:12:2022 4:57</p>#}
-                {#                        </li>#}
-                {#                    </ul>#}
-                {#                    <footer>#}
-                {#                        <button class="btn btn-blue">Оплатить</button>#}
-                {#                    </footer>#}
-                {#                </div>#}
-                {#                <div class="subscription-item bg-shadow blue-card">#}
-                {#                    <header class="h3-row">#}
-                {#                        <h3>Подписка №341</h3>#}
-                {#                        <span class="paid">Оплачено</span>#}
-                {#                    </header>#}
-                {#                    <ul class="text-list">#}
-                {#                        <li>#}
-                {#                            <span>Класс:</span>#}
-                {#                            <p>2 класс</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Программа:</span>#}
-                {#                            <p>Русский язык</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Дата подключения:</span>#}
-                {#                            <p>27:12:2021 4:57</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Конец подписки:</span>#}
-                {#                            <p>27:12:2022 4:57</p>#}
-                {#                        </li>#}
-                {#                    </ul>#}
-                {#                    <footer>#}
-                {#                        <button class="btn btn-orange">Отменить</button>#}
-                {#                    </footer>#}
-                {#                </div>#}
-                {#                <div class="subscription-item bg-shadow blue-card">#}
-                {#                    <header class="h3-row">#}
-                {#                        <h3>Подписка №341</h3>#}
-                {#                        <span class="paid">Оплачено</span>#}
-                {#                    </header>#}
-                {#                    <ul class="text-list">#}
-                {#                        <li>#}
-                {#                            <span>Класс:</span>#}
-                {#                            <p>2 класс</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Программа:</span>#}
-                {#                            <p>Русский язык</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Дата подключения:</span>#}
-                {#                            <p>27:12:2021 4:57</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Конец подписки:</span>#}
-                {#                            <p>27:12:2022 4:57</p>#}
-                {#                        </li>#}
-                {#                    </ul>#}
-                {#                    <footer>#}
-                {#                        <button class="btn btn-orange">Отменить</button>#}
-                {#                    </footer>#}
-                {#                </div>#}
-                {#                <div class="subscription-item bg-shadow blue-card">#}
-                {#                    <header class="h3-row">#}
-                {#                        <h3>Подписка №341</h3>#}
-                {#                        <span class="paid">Оплачено</span>#}
-                {#                    </header>#}
-                {#                    <ul class="text-list">#}
-                {#                        <li>#}
-                {#                            <span>Класс:</span>#}
-                {#                            <p>2 класс</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Программа:</span>#}
-                {#                            <p>Русский язык</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Дата подключения:</span>#}
-                {#                            <p>27:12:2021 4:57</p>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <span>Конец подписки:</span>#}
-                {#                            <p>27:12:2022 4:57</p>#}
-                {#                        </li>#}
-                {#                    </ul>#}
-                {#                    <footer>#}
-                {#                        <button class="btn btn-orange">Отменить</button>#}
-                {#                    </footer>#}
-                {#                </div>#}
+            {% else %}
+              <br/>
+              <p>У вас активных подписок нет</p>
+            {% endif %}
             </div>
         </section>
 
