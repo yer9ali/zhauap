@@ -23,7 +23,7 @@ services:
     command: /start
     volumes:
       - static_volume:/app/staticfiles
-      - media_volume:/app/prosud/mediafiles
+      - media_volume:/app/daiyn_zhauaptar/mediafiles
 
   postgres:
     build:
