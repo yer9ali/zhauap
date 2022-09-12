@@ -44,7 +44,6 @@ class Subscription(AbstractDateTime):
     activation_date = models.DateTimeField(_('activation_date'))
     expiration_date = models.DateTimeField(_('expiration_date'))
 
-    # payment = models.ForeignKey(Payment, db_column='payment_id', on_delete=models.CASCADE, null=True)
     user_id = models.ForeignKey(User, db_column='user_id', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
@@ -61,7 +60,7 @@ class Book(AbstractDateTime):
 
     name = models.CharField(_('name'), max_length=50)
     description = models.TextField(_('описание'), max_length=10000, blank=True)
-    author = models.CharField(_('автор'), max_length=100, null=False, blank=False, unique=True)
+    author = models.CharField(_('автор'), max_length=100, null=False, blank=False)
     publisher = models.CharField(_('издатель'), max_length=100, blank=True)
 
     clas = models.IntegerField(_('класс'), validators=[MinValueValidator(1), MaxValueValidator(12)])
