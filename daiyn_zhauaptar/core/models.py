@@ -24,18 +24,18 @@ class AbstractDateTime(Model):
         abstract = True
 
 
-class Payment(AbstractDateTime):
-    id = models.UUIDField(_('id'), primary_key=True, default=uuid.uuid4, editable=False)
-    paid = models.BooleanField(default=False)
-    date = models.DateTimeField()
-
-    def __str__(self):
-        return f'{self.id}'
-
-    class Meta:
-        db_table = 'payment'
-        verbose_name = 'Оплата'
-        verbose_name_plural = 'Оплата'
+# class Payment(AbstractDateTime):
+#     id = models.UUIDField(_('id'), primary_key=True, default=uuid.uuid4, editable=False)
+#     paid = models.BooleanField(default=False)
+#     date = models.DateTimeField()
+#
+#     def __str__(self):
+#         return f'{self.id}'
+#
+#     class Meta:
+#         db_table = 'payment'
+#         verbose_name = 'Оплата'
+#         verbose_name_plural = 'Оплата'
 
 
 class Subscription(AbstractDateTime):
