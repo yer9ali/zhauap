@@ -1,5 +1,4 @@
 from daiyn_zhauaptar.core.models import Book
-from daiyn_zhauaptar.core.models import Payment
 from daiyn_zhauaptar.core.models import Subscription
 from daiyn_zhauaptar.core.models import UserBook
 from daiyn_zhauaptar.core.models import Answer
