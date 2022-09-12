@@ -61,7 +61,7 @@ class Book(AbstractDateTime):
 
     name = models.CharField(_('name'), max_length=50)
     description = models.TextField(_('описание'), max_length=10000, blank=True)
-    author = models.CharField(_('автор'), max_length=100, null=False, blank=False)
+    author = models.CharField(_('автор'), max_length=100, null=False, blank=False, unique=True)
     publisher = models.CharField(_('издатель'), max_length=100, blank=True)
 
     clas = models.IntegerField(_('класс'), validators=[MinValueValidator(1), MaxValueValidator(12)])
