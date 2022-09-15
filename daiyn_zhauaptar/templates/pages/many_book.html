@@ -1,76 +1,79 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block side_block %}
-    {% for key, value in subject_dict.items %}
 
-        <li class="link-nav">
-        <span>
+{% block side_block %}
+  {% for key, value in subject_dict %}
+
+    <li class="link-nav">
+    <span>
                             <span class="link-name">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path
-                                            d="M21 3C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V20C22 20.2652 21.8946 20.5196 21.7071 20.7071C21.5196 20.8946 21.2652 21 21 21H3C2.73478 21 2.48043 20.8946 2.29289 20.7071C2.10536 20.5196 2 20.2652 2 20V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H21ZM9.399 8H7.399L4.199 16H6.353L6.753 15H10.043L10.443 16H12.598L9.399 8ZM19 8H17V10H16C15.2191 9.99925 14.4687 10.303 13.9082 10.8468C13.3477 11.3905 13.0213 12.1314 12.9984 12.912C12.9755 13.6925 13.2578 14.4513 13.7855 15.027C14.3131 15.6027 15.0444 15.9499 15.824 15.995L16 16H19V8ZM17 12V14H16L15.883 13.993C15.64 13.9641 15.4159 13.847 15.2534 13.664C15.0909 13.481 15.0011 13.2448 15.0011 13C15.0011 12.7552 15.0909 12.519 15.2534 12.336C15.4159 12.153 15.64 12.0359 15.883 12.007L16 12H17ZM8.399 10.885L9.244 13H7.552L8.399 10.885Z"
-                                            fill="#CBD4E0"/>
+                                      d="M21 4H7C6.46957 4 5.96086 4.21071 5.58579 4.58579C5.21071 4.96086 5 5.46957 5 6C5 6.53043 5.21071 7.03914 5.58579 7.41421C5.96086 7.78929 6.46957 8 7 8H21V21C21 21.2652 20.8946 21.5196 20.7071 21.7071C20.5196 21.8946 20.2652 22 20 22H7C5.93913 22 4.92172 21.5786 4.17157 20.8284C3.42143 20.0783 3 19.0609 3 18V6C3 4.93913 3.42143 3.92172 4.17157 3.17157C4.92172 2.42143 5.93913 2 7 2H20C20.2652 2 20.5196 2.10536 20.7071 2.29289C20.8946 2.48043 21 2.73478 21 3V4ZM20 7H7C6.73478 7 6.48043 6.89464 6.29289 6.70711C6.10536 6.51957 6 6.26522 6 6C6 5.73478 6.10536 5.48043 6.29289 5.29289C6.48043 5.10536 6.73478 5 7 5H20V7Z"
+                                      fill="#CBD4E0"/>
                                 </svg>
                                 {{ key }} класс
                             </span>
                             <svg class="arrow-r" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                        d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
-                                        fill="#8D9FBB"/>
+                                  d="M9.70193 18.0104L15.7123 12L9.70194 5.98959L8.28772 7.40381L12.8839 12L8.28772 16.5962L9.70193 18.0104Z"
+                                  fill="#8D9FBB"/>
                             </svg>
                         </span>
-        <ul class="sub-link">
-            {% for j in value %}
-                <li><a href="{% url 'detail' j key %}">{{ j }}</a></li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
+    <ul class="sub-link">
+      {% for item in value %}
+        <li><a href="{% url 'detail' item key %}">{{ item }}</a></li>
+      {% endfor %}
+
+    </ul>
+  {% endfor %}
 </li>
 {% endblock %}
+
 {% block content %}
-    {% load static %}
-    <div class="content-page ">
-{#        <ul class="crumb bg-shadow">#}
-            {#                <li><a href="../index.html">Yergali</a></li>#}
-            {#                <li class="mob-hidden">\</li>#}
-            {#                <li class="mob-hidden"><a href="#">Математика</a></li>#}
-            {#                <li class="mob-hidden">\</li>#}
-            {#                <li class="pc-visible">\ ... \</li>#}
-            {#                <li>Чеботаревская (Часть 1, 2)</li>#}
-{#        </ul>#}
-        <section class="school-subject">
-            <div class="school-subject-row">
-                {% for item in book_info %}
-                    <a href="{% url 'detail_book_by_author' item.1 item.2 item.4 %}">{{ clas }}
-                        <header class="bg-shadow blue-card header-school-subject">
-                            <div class="img-sc-subject">
-                                <img src="{% get_media_prefix %}{{ item.5 }}" alt="">
-                            </div>
-                            <div class="sc-subject-info">
-                                <h2>{{ item.1 }}</h2>
-                                <ul class="text-list">
-                                    <li>
-                                        <span>Автор:</span>
-                                        <p>{{ item.4 }}</p>
-                                    </li>
-                                    <li>
-                                        <span>Год</span>
-                                        <p>{{ item.7 }}</p>
-                                    </li>
-                                    <li>
-                                        <span>Издательство</span>
-                                        <p>{{ item.6 }}</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </header>
-                    </a>
-                {% endfor %}
-            </div>
+  {% load static %}
+  <div class="content-page ">
+    {#        <ul class="crumb bg-shadow">#}
+    {#                <li><a href="../index.html">Yergali</a></li>#}
+    {#                <li class="mob-hidden">\</li>#}
+    {#                <li class="mob-hidden"><a href="#">Математика</a></li>#}
+    {#                <li class="mob-hidden">\</li>#}
+    {#                <li class="pc-visible">\ ... \</li>#}
+    {#                <li>Чеботаревская (Часть 1, 2)</li>#}
+    {#        </ul>#}
+    <section class="school-subject">
+      <div class="school-subject-row">
+        {% for item in book_info %}
+          <a href="{% url 'detail_book_by_id' item.0 item.2 %}">{{ clas }}
+            <header class="bg-shadow blue-card header-school-subject">
+              <div class="img-sc-subject">
+                <img src="{% get_media_prefix %}{{ item.5 }}" alt="">
+              </div>
+              <div class="sc-subject-info">
+                <h2>{{ item.1 }}</h2>
+                <ul class="text-list">
+                  <li>
+                    <span>Описание:</span>
+                    <p>{{ item.4 }}</p>
+                  </li>
+                  <li>
+                    <span>Язык</span>
+                    <p>{{ item.8 }}</p>
+                  </li>
+                  {#                  <li>#}
+                  {#                    <span>Издательство</span>#}
+                  {#                    <p>{{ item.6 }}</p>#}
+                  {#                  </li>#}
+                </ul>
+              </div>
+            </header>
+          </a>
+        {% endfor %}
+      </div>
 
-        </section>
+    </section>
 
-    </div>
+  </div>
 {% endblock %}

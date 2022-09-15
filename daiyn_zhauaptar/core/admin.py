@@ -1,6 +1,10 @@
 from django.contrib import admin
 
-from daiyn_zhauaptar.core.models import Book, Answer, MainBooks, Subscription
+from daiyn_zhauaptar.core.models import Book, Answer, MainBooks, Subscription, ImageAnswer
+
+
+class ImageAnswerAdmin(admin.StackedInline):
+    model = ImageAnswer
 
 
 @admin.register(Book)
@@ -10,7 +14,9 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):
-    list_display = ('number', 'photo', 'book')
+    list_display = ('number', 'book')
+
+    inlines = [ImageAnswerAdmin]
 
 
 @admin.register(MainBooks)

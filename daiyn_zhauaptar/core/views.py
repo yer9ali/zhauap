@@ -10,13 +10,13 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from datetime import datetime
 from daiyn_zhauaptar.core.forms import UserRegistrationForm
-from daiyn_zhauaptar.core.models import Book, MainBooks, Subscription, Answer
+from daiyn_zhauaptar.core.models import Book, MainBooks, Subscription, Answer, ImageAnswer
 from daiyn_zhauaptar.users.models import User
 
 
 def side_block_dict(request):
     subject_dict = {}
-    subject_info = Book.objects.values('clas', 'name')
+    subject_info = Book.objects.values('clas', 'name').order_by('clas').distinct()
     for i in subject_info:
         clas = i['clas']
         name_list = []
@@ -24,7 +24,7 @@ def side_block_dict(request):
             if j['clas'] == clas:
                 name_list.append(j['name'])
         subject_dict[clas] = set(name_list)
-    return dict(sorted(subject_dict.items()))
+    return subject_dict.items()
 
 
 def register_request(request):
@@ -94,7 +94,7 @@ def subscription(request):
     subs_list = sorted(list(
         Subscription.objects.filter(expiration_date__gt=datetime.now())
         .filter(user_id=request.user.id).values_list('class_number', 'activation_date',
-                                                                         'expiration_date')))
+                                                     'expiration_date')))
 
     return render(request, 'pages/subscription.html',
                   {'subs_list': subs_list})
@@ -104,9 +104,9 @@ def index(request):
     main_book_dict = dict(MainBooks.objects.values_list('book_id', 'photo'))
     book_dict = {}
     for book_id, photo in main_book_dict.items():
-        book_name = str(Book.objects.get(id=book_id)).split(' ')[0]
-        clas_list = sorted(set(Book.objects.filter(name__contains=book_name).values_list('clas', flat=True)))
-        book_detail_dict = {'class': clas_list, 'photo': photo}
+        book_name = Book.objects.get(id=book_id).name
+        subject_info = Book.objects.filter(name__contains=book_name).values('clas').order_by('clas').distinct()
+        book_detail_dict = {'subject_info': subject_info, 'photo': photo}
         book_dict[book_name] = book_detail_dict
 
     return render(request, 'index.html',
@@ -115,7 +115,11 @@ def index(request):
 
 
 def render_html_detail(request, book_info, clas):
-    answer_list = sorted(list(Answer.objects.filter(book_id=book_info[0][0]).values_list('number', 'photo')))
+    # answer_list = sorted(list(Answer.objects.filter(book_id=book_info[0][0]).values_list('number')))
+    answer_list = sorted(list(
+        ImageAnswer.objects.select_related('answer').filter(answer__book_id=book_info[0][0]).values_list(
+            'answer__number',
+            'image')))
 
     expiration_date = Subscription.objects.filter(user_id=request.user.id, class_number=clas)
     expire = True
@@ -124,6 +128,13 @@ def render_html_detail(request, book_info, clas):
         date = expiration_date.values_list('expiration_date').first()[0]
         if date >= timezone.now():
             expire = False
+
+    answer_number_list = []
+    count = 0
+    for answer in answer_list:
+        if answer[0] != count:
+            count = answer[0]
+            answer_number_list.append(answer[0])
 
     return render(request, 'pages/detail.html',
                   {
@@ -135,23 +146,26 @@ def render_html_detail(request, book_info, clas):
                       'book_publisher': book_info[0][6],
                       'book_year_published': book_info[0][7],
                       'answer_list': answer_list,
+                      "answer_number_list": answer_number_list,
                       'subject_dict': side_block_dict(request),
                       'expire': expire
                   }
                   )
 
 
-def detail_book_by_author(request, book_name, clas, author):
-    book = Book.objects.filter(name__contains=book_name, clas=clas, author=author)
+def detail_book_by_id(request, book_id, clas):
+    book = Book.objects.filter(id=book_id)
     book_info = list(
-        book.values_list('id', 'name', 'clas', 'description', 'author', 'image', 'publisher', 'year_published'))
+        book.values_list('id', 'name', 'clas', 'description', 'author', 'image', 'publisher', 'year_published',
+                         'language'))
     return render_html_detail(request, book_info, clas)
 
 
 def detail(request, book_name, clas):
     book = Book.objects.filter(name__contains=book_name, clas=clas)
     book_info = list(
-        book.values_list('id', 'name', 'clas', 'description', 'author', 'image', 'publisher', 'year_published'))
+        book.values_list('id', 'name', 'clas', 'description', 'author', 'image', 'publisher', 'year_published',
+                         'language'))
 
     if len(book) > 1:
         return render(request, 'pages/many_book.html', {

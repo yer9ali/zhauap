@@ -8,7 +8,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
 
 from daiyn_zhauaptar.core.views import register_request, login_request, logout_request, password_reset_request, payment, \
-    subscription, index, detail, detail_book_by_author
+    subscription, index, detail, detail_book_by_id
 
 urlpatterns = [
     path('register/', register_request, name='register'),
@@ -21,7 +21,7 @@ urlpatterns = [
     path('subscription/', subscription, name='subscription'),
     path('', index, name='index'),
     path('detail/<str:book_name>/<str:clas>', detail, name='detail'),
-    path('detail/<str:book_name>/<str:clas>/<str:author>', detail_book_by_author, name='detail_book_by_author'),
+    path('detail_by_id/<uuid:book_id>/<str:clas>', detail_book_by_id, name='detail_book_by_id'),
 
     path('password_reset/done/',
          auth_views.PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'),

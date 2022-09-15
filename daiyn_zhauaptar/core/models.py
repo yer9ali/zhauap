@@ -1,5 +1,6 @@
 import uuid
 
+from PIL.Image import Image
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -11,8 +12,8 @@ from django.utils.translation import gettext_lazy as _
 from daiyn_zhauaptar.users.models import User
 
 LANGUAGE_TYPE = (
-    ('kz', 'қаз'),
-    ('ru', 'рус')
+    ('каз', 'қаз'),
+    ('рус', 'рус')
 )
 
 
@@ -60,7 +61,7 @@ class Book(AbstractDateTime):
 
     name = models.CharField(_('name'), max_length=50)
     description = models.TextField(_('описание'), max_length=10000, blank=True)
-    author = models.CharField(_('автор'), max_length=100, null=False, blank=False)
+    author = models.CharField(_('Краткое описание'), max_length=100, null=False, blank=False)
     publisher = models.CharField(_('издатель'), max_length=100, blank=True)
 
     clas = models.IntegerField(_('класс'), validators=[MinValueValidator(1), MaxValueValidator(12)])
@@ -114,14 +115,24 @@ class Answer(AbstractDateTime):
     id = models.UUIDField(_('id'), primary_key=True, default=uuid.uuid4, editable=False)
     book = models.ForeignKey(Book, verbose_name=_('книга'), db_column='book_id', on_delete=models.CASCADE)
     number = models.IntegerField(_('номер ответа'), blank=True)
-    photo = FileField(
-        upload_to="content/", verbose_name="Изображение", max_length=1000
-    )
+    # photo = FileField(
+    #     upload_to="content/", verbose_name="Изображение", max_length=1000
+    # )
+
+    # image_answer = models.ForeignKey(ImageAnswer, on_delete=models.CASCADE, related_name='image_answer')
 
     class Meta:
         db_table = 'answer'
         verbose_name = 'Ответы'
         verbose_name_plural = 'Ответы'
+
+
+class ImageAnswer(AbstractDateTime):
+    answer = models.ForeignKey(Answer, on_delete=models.CASCADE, related_name='answer')
+    image = models.FileField(upload_to='content/', verbose_name="Изображение", max_length=1000)
+
+    class Meta:
+        db_table = 'image_answer'
 
 
 class MainBooks(AbstractDateTime):
