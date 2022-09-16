@@ -66,7 +66,7 @@ class Book(AbstractDateTime):
 
     clas = models.IntegerField(_('класс'), validators=[MinValueValidator(1), MaxValueValidator(12)])
     year_published = models.CharField(_('год публикации'), max_length=4, blank=True, default='')
-    language = models.CharField(_('язык'), choices=LANGUAGE_TYPE, null=True, blank=True, default='каз', max_length=5)
+    language = models.CharField(_('язык'), choices=LANGUAGE_TYPE, default='каз', max_length=5)
 
     image = FileField(
         upload_to="content/", verbose_name="Изображение", max_length=1000

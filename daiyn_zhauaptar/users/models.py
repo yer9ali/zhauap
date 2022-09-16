@@ -16,7 +16,7 @@ class User(AbstractUser):
     name = CharField(_('username'), unique=True, max_length=100, null=False)
     first_name = None  # type: ignore
     last_name = None  # type: ignore
-    language = CharField(_('язык'), max_length=2)
+    # language = CharField(_('язык'), max_length=2)
 
     def get_absolute_url(self):
         """Get url for user's detail view.
